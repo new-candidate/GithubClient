@@ -5,6 +5,7 @@ import ru.geekbrains.githubclient.R;
 import ru.geekbrains.githubclient.mvp.model.Model;
 import ru.geekbrains.githubclient.mvp.view.MainView;
 
+
 public class Presenter {
     private MainView view;
     private Model model = new Model();
@@ -28,3 +29,4 @@ public class Presenter {
         }
     }
 }
+

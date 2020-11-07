@@ -24,14 +24,10 @@ public class MainActivity extends AppCompatActivity implements MainView, View.On
         setContentView(R.layout.activity_main);
 
         presenter = new Presenter(this);
-//        setTag(0);
+
         buttonCounter1 = findViewById(R.id.btn_counter1);
         buttonCounter2 = findViewById(R.id.btn_counter2);
         buttonCounter3 = findViewById(R.id.btn_counter3);
-
-        findViewById(R.id.btn_counter1).setTag(0);
-        findViewById(R.id.btn_counter2).setTag(1);
-        findViewById(R.id.btn_counter3).setTag(2);
 
         buttonCounter1.setOnClickListener(this);
         buttonCounter2.setOnClickListener(this);
@@ -59,13 +55,7 @@ public class MainActivity extends AppCompatActivity implements MainView, View.On
     }
 
     @Override
-    public void onClick(View v) {
-        presenter.counterClick((int)v.getTag());
-        Log.e("TAG", "missing button with " + (v.getId()));
-        Log.e("TAG", "missing button with tag " + (int)v.getTag());
+    public void onClick(View view) {
+        presenter.counterClick(view.getId());
     }
-//    public void onClick(View view) {
-//        presenter.counterClick(view.getId());
-
-//    }
 }
