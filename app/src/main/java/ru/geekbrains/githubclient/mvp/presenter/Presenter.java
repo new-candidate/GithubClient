@@ -14,19 +14,20 @@ public class Presenter {
         this.view = view;
     }
 
-    public void counterClick(int id) {
-        switch (id) {
-            case R.id.btn_counter1:
+    public void counterClick(int index) {
+        switch (index) {
+            case 0:
                 view.setButtonText(0, String.valueOf(model.next(0)));
                 break;
-            case R.id.btn_counter2:
+            case 1:
                 view.setButtonText(1, String.valueOf(model.next(1)));
                 break;
-            case R.id.btn_counter3:
+            case 2:
                 view.setButtonText(2, String.valueOf(model.next(2)));
                 break;
 
         }
     }
 }
+
 

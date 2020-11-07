@@ -22,21 +22,27 @@ public class MainActivity extends AppCompatActivity implements MainView, View.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         presenter = new Presenter(this);
+        init();
+    }
 
+    private void init() {
         buttonCounter1 = findViewById(R.id.btn_counter1);
         buttonCounter2 = findViewById(R.id.btn_counter2);
         buttonCounter3 = findViewById(R.id.btn_counter3);
 
+        buttonCounter1.setTag(0);
+        buttonCounter2.setTag(1);
+        buttonCounter3.setTag(2);
+
         buttonCounter1.setOnClickListener(this);
         buttonCounter2.setOnClickListener(this);
         buttonCounter3.setOnClickListener(this);
-
     }
 
     @Override
     public void setButtonText(int index, String text) {
+
         switch (index) {
             case 0:
                 buttonCounter1.setText(text);
@@ -55,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements MainView, View.On
     }
 
     @Override
-    public void onClick(View view) {
-        presenter.counterClick(view.getId());
+    public void onClick(View v) {
+        presenter.counterClick((int)v.getTag());
     }
 }
